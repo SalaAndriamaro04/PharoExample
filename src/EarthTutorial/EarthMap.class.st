@@ -41,7 +41,7 @@ countries add: (EarthMapCountry new fromXML: aXMLElement)
 { #category : 'initialization' }
 EarthMap >> initialize [
 super initialize.
-countries := OrderedCollection new
+countries := OrderedCollection new.
 ]
 
 { #category : 'openPopulatedCanvas' }
