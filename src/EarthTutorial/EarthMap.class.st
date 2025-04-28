@@ -38,6 +38,12 @@ EarthMap >> importCountryFromXMLNode: aXMLElement [
 countries add: (EarthMapCountry new fromXML: aXMLElement)
 ]
 
+{ #category : 'initialization' }
+EarthMap >> initialize [
+super initialize.
+countries := OrderedCollection new
+]
+
 { #category : 'openPopulatedCanvas' }
 EarthMap >> openPopulatedCanvas [
 self populatedCanvas open
