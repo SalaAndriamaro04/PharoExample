@@ -1,12 +1,17 @@
 Class {
 	#name : 'ENegation',
-	#superclass : 'Object',
+	#superclass : 'EExpression',
 	#instVars : [
 		'expression'
 	],
 	#category : 'Expressions',
 	#package : 'Expressions'
 }
+
+{ #category : 'expression:' }
+ENegation class >> expression: anExpression [
+^ self new expression: anExpression 
+]
 
 { #category : 'evaluate' }
 ENegation >> evaluate [
@@ -16,11 +21,4 @@ ENegation >> evaluate [
 { #category : 'expression:' }
 ENegation >> expression: anExpression [
 expression := anExpression evaluate negated.
-]
-
-{ #category : 'negated' }
-ENegation >> negated [
-^ ENegation new expression: self
-
-"^ self class new expression: self"
 ]

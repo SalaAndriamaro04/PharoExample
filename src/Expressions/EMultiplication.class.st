@@ -1,6 +1,6 @@
 Class {
 	#name : 'EMultiplication',
-	#superclass : 'Object',
+	#superclass : 'EExpression',
 	#instVars : [
 		'left',
 		'right'
@@ -8,6 +8,20 @@ Class {
 	#category : 'Expressions',
 	#package : 'Expressions'
 }
+
+{ #category : 'fiveTimesThree' }
+EMultiplication class >> fiveTimesThree [
+<sampleInstance>
+| ep1 ep2 |
+ep1 := EConstant constant5.
+ep2 := EConstant constant3.
+^ self new left: ep1 ; right: ep2
+]
+
+{ #category : 'left:right:' }
+EMultiplication class >> left: anExp right: anExp2 [
+^ self new left: anExp ; right: anExp2 .
+]
 
 { #category : 'evaluate' }
 EMultiplication >> evaluate [
@@ -17,11 +31,6 @@ EMultiplication >> evaluate [
 { #category : 'left:' }
 EMultiplication >> left: anExpression [
 left := anExpression evaluate.
-]
-
-{ #category : 'negated' }
-EMultiplication >> negated [ 
-^ ENegation new expression: self.
 ]
 
 { #category : 'right:' }

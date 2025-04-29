@@ -1,6 +1,6 @@
 Class {
 	#name : 'EAddition',
-	#superclass : 'Object',
+	#superclass : 'EExpression',
 	#instVars : [
 		'left',
 		'right'
@@ -8,6 +8,20 @@ Class {
 	#category : 'Expressions',
 	#package : 'Expressions'
 }
+
+{ #category : 'fivePlusThree' }
+EAddition class >> fivePlusThree [
+<sampleInstance>
+| ep1 ep2 |
+ep1 := EConstant new value: 5.
+ep2 := EConstant new value: 3.
+^ self new left: ep1 ; right: ep2
+]
+
+{ #category : 'left:right:' }
+EAddition class >> left: anInteger right: anInteger2 [
+^ self new left: anInteger ; right: anInteger2
+]
 
 { #category : 'evaluate' }
 EAddition >> evaluate [
@@ -17,11 +31,6 @@ EAddition >> evaluate [
 { #category : 'left:' }
 EAddition >> left: anExpression [
 left:= anExpression evaluate.
-]
-
-{ #category : 'negated' }
-EAddition >> negated [ 
-^ ENegation new expression: self .
 ]
 
 { #category : 'right:' }
